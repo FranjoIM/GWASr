@@ -1,0 +1,127 @@
+---
+title: "GWASr"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{GWASr}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+author:
+  - Franjo Ivankovic^[University of Florida, njofrica@ufl.edu]
+  - Mingjing Chen^[University of Florida, mingjingchen@ufl.edu]
+  - Xiaoxiao Wen^[University of Florida, xiaoxiao.wen@ufl.edu]
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  eval = FALSE
+)
+```
+
+GWASr is a simple R pacakge which is capable of building QQ and Manhattan plots as well as calculating genomic lambda constant.
+
+## Install Packages
+To install GWASr, a simple one-line code below with fetch this package from GitHub and install it in R. Additionally, the *build_vignettes = TRUE* option will automatically build an HTML of this vignette.
+```{r install}
+devtools::install_github("FranjoIM/PackageName", ref = "v0.1.0", build_vignettes = TRUE)
+```
+
+## Load the Package
+Loading library is very easy, by simply running the following one-line code.
+```{r setup}
+library(GWASr)
+```
+
+## Accessing Vignettes
+To access this vignette, simply run the following code in the R console.
+```{r vignette}
+vignette("GWASr", package = "GWASr")
+```
+
+## Overview of GWASr Functions
+GWASr includes 3 functions, namely 2 plottng functions written in R (*plot_manhattan* and *plot_qq*), and 1 function written in Rcpp (*GLambda*). While the main focus of the package are the plotting functions, we will overview the *GLambda* first, as it's fairly straight forward. 
+
+### Genomic Lambda Calculation (Rcpp)
+Genomic lambda is a numerical constant, which is defined as the ratio of the median $\chi^2$ test score to an $\chi^2$ at $p=0.5$, or $0.4549364$. Genomic Lambda, also called the genomic inflation factor $\lambda_{gc}$, measures systematic biases that may be present in the GWAS association results. The expected $\lambda_{gc} \leq 1$. If the $\lambda_{gc} > 1$, then this may be evidence for some systematic bias that needs to be corrected in the analysis. 
+
+The easiest way to calculate $\lambda_{gc}$ is to pass the p values from the summary statistics directly into the function. And example using the included data is:
+```{r Genomic lambda}
+GLambda(ADHDMetaP$P)
+```
+
+Any numeric variable can be passed into the function. Additionally, by the very mathematical definition provided above, the $\lambda_{gc}$ when a single $p = 0.5$ is passed in should evaluate to $1$.
+```{r Genomic lambda tes}
+GLambda(0.5)
+#> 1
+```
+
+For a detailed overview of arguments, run:
+```{r Geenomic lambda arguments}
+?GLambda
+```
+
+### Manhattan Plot
+Manhattan plot is the most frequent method of visually representing the strength of genome-wide associations, by plotting each SNP's association $p$ on a y-axis, specifically as a $-log_{10}$ transform thereof, while plotting genomic positions on the x-axis. Genomic positions are mapped by typical *chr: base* address. Additionally, this function plots two reference lines on the plot at $p_{stringent} = 3*10^-8$ and $p_{lax} = 10^-5$, which represent genome-wide significant and genome-wide suggestive thresholds, respectively.
+
+This function requires a data frame with 3 columns: chromosome ID (character class), base-pair position (numeric class), and $p$ values (numeric types). 
+```{r Manhattan plot}
+plot_manhattan(ADHDMeta)
+```
+
+For a detailed overview of arguments, run:
+```{r Manhattan plot arguments}
+?plot_manhattan
+```
+
+### QQ Plot
+In a genome-wide association study, most of the SNPs tested should not to be associated with the phenotype. Thus, ideally, qq-plot of GWAS $p$ should follow a straight diagonal line with expected $p$, only taperig off at the very end. QQ plots show the quantile distribution of the $p$ values from our samples. QQ plots can inform whether there is a presence of systematic bias, much like the genomic lambda, and indicate if a closer look at data and model are necessary.
+
+This function requres a data frame with 1 column: $p$ values (numeric types).
+```{r QQ plot}
+plot_qq(DF)
+```
+
+For a detailed overview of arguments, run:
+```{r QQ plot arguments}
+?plot_qq
+```
+
+## Included Datasets
+This package includes two datasets which were obtained from [Psychiatric Genomics Consortium](https://www.med.unc.edu/pgc/download-results/) results page, and were originally published by [Demontis et al. (2019)](https://doi.org/10.1038/s41588-018-0269-7) in *Nature Genetics*.
+
+## ADHD Meta
+ADHD Meta is a processed data frame of 239,961 rows and 5 variables. In order to reduce memory requirements for packaging and distribution, as well as running trial functions, all observations with $p$ values over $0.2$ were excluded in the set.
+
+The variables include:
+
+1. CHR<chr>: chromosome ID
+2. SNP<chr>: SNP ID
+3. BP<num>: base-pair genomic location
+4. OR<num>: Odds-ratio from GWAS
+5. P<num>: P values from GWAS
+
+As lazy-loading is on for this package, the data should load with the package and callable ass:
+```{r ADHDMeta}
+ADHDMeta
+names(ADHDMeta)
+#> [1] "CHR" "SNP" "BP"  "OR"  "P"  
+```
+
+## ADHD Meta P
+ADHD Meta P is a minimally processed collection of SNP IDs and related $p$ values. It includes 8,094,094 rows and 2 variables. Most of the columns were removed in thee interest of reducing memory requirements, but all the $p$ values were kept as reported in the study.
+
+The variables include:
+
+1. SNP<chr>: SNP ID
+2. P<num>: P values from GWAS
+
+As lazy-loading is on for this package, the data should load with the package and callable ass:
+```{r ADHDMetaP}
+ADHDMetaP
+names(ADHDMetaP)
+#> [1] "SNP" "P"  
+```
+
+## References
+* Demontis, D., Walters, R.K., Martin, J. et al. Discovery of the first genome-wide significant risk loci for attention deficit/hyperactivity disorder. *Nat Genet* 51, 63–75 (2019). [10.1038/s41588-018-0269-7](https://doi.org/10.1038/s41588-018-0269-7)

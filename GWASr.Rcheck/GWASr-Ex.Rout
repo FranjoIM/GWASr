@@ -1,0 +1,194 @@
+
+R version 4.0.5 (2021-03-31) -- "Shake and Throw"
+Copyright (C) 2021 The R Foundation for Statistical Computing
+Platform: x86_64-apple-darwin17.0 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> pkgname <- "GWASr"
+> source(file.path(R.home("share"), "R", "examples-header.R"))
+> options(warn = 1)
+> library('GWASr')
+> 
+> base::assign(".oldSearch", base::search(), pos = 'CheckExEnv')
+> base::assign(".old_wd", base::getwd(), pos = 'CheckExEnv')
+> cleanEx()
+> nameEx("GLambda")
+> ### * GLambda
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: GLambda
+> ### Title: GLambda
+> ### Aliases: GLambda
+> 
+> ### ** Examples
+> 
+> GLambda(ADHDMetaP$P)
+[1] 1.219852
+> 
+> 
+> 
+> cleanEx()
+> nameEx("plot_manhattan")
+> ### * plot_manhattan
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: plot_manhattan
+> ### Title: Manhattan Plot
+> ### Aliases: plot_manhattan
+> 
+> ### ** Examples
+> 
+> plot_manhattan(ADHDMeta)
+> 
+> 
+> 
+> cleanEx()
+> nameEx("plot_qq")
+> ### * plot_qq
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: plot_qq
+> ### Title: QQ Plot
+> ### Aliases: plot_qq
+> 
+> ### ** Examples
+> 
+> plot_qq(ADHDMetaP)
+Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  font metrics unknown for Unicode character U+03bb
+Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  conversion failure on 'λ =' in 'mbcsToSbcs': dot substituted for <ce>
+Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  conversion failure on 'λ =' in 'mbcsToSbcs': dot substituted for <bb>
+Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  font metrics unknown for Unicode character U+03bb
+Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  conversion failure on 'λ =' in 'mbcsToSbcs': dot substituted for <ce>
+Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  conversion failure on 'λ =' in 'mbcsToSbcs': dot substituted for <bb>
+Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  font metrics unknown for Unicode character U+03bb
+Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  conversion failure on 'λ =' in 'mbcsToSbcs': dot substituted for <ce>
+Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  conversion failure on 'λ =' in 'mbcsToSbcs': dot substituted for <bb>
+Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  font metrics unknown for Unicode character U+03bb
+Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  conversion failure on 'λ =' in 'mbcsToSbcs': dot substituted for <ce>
+Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  conversion failure on 'λ =' in 'mbcsToSbcs': dot substituted for <bb>
+Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  font metrics unknown for Unicode character U+03bb
+Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  conversion failure on 'λ =' in 'mbcsToSbcs': dot substituted for <ce>
+Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  conversion failure on 'λ =' in 'mbcsToSbcs': dot substituted for <bb>
+Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  font metrics unknown for Unicode character U+03bb
+Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  conversion failure on 'λ =' in 'mbcsToSbcs': dot substituted for <ce>
+Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  conversion failure on 'λ =' in 'mbcsToSbcs': dot substituted for <bb>
+Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  font metrics unknown for Unicode character U+03bb
+Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  conversion failure on 'λ =' in 'mbcsToSbcs': dot substituted for <ce>
+Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  conversion failure on 'λ =' in 'mbcsToSbcs': dot substituted for <bb>
+Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  font metrics unknown for Unicode character U+03bb
+Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  conversion failure on 'λ =' in 'mbcsToSbcs': dot substituted for <ce>
+Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  conversion failure on 'λ =' in 'mbcsToSbcs': dot substituted for <bb>
+Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  font metrics unknown for Unicode character U+03bb
+Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  conversion failure on 'λ =' in 'mbcsToSbcs': dot substituted for <ce>
+Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  conversion failure on 'λ =' in 'mbcsToSbcs': dot substituted for <bb>
+Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  font metrics unknown for Unicode character U+03bb
+Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  conversion failure on 'λ =' in 'mbcsToSbcs': dot substituted for <ce>
+Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  conversion failure on 'λ =' in 'mbcsToSbcs': dot substituted for <bb>
+Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  font metrics unknown for Unicode character U+03bb
+Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  conversion failure on 'λ =' in 'mbcsToSbcs': dot substituted for <ce>
+Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  conversion failure on 'λ =' in 'mbcsToSbcs': dot substituted for <bb>
+Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  font metrics unknown for Unicode character U+03bb
+Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  conversion failure on 'λ =' in 'mbcsToSbcs': dot substituted for <ce>
+Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  conversion failure on 'λ =' in 'mbcsToSbcs': dot substituted for <bb>
+Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  font metrics unknown for Unicode character U+03bb
+Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  conversion failure on 'λ =' in 'mbcsToSbcs': dot substituted for <ce>
+Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  conversion failure on 'λ =' in 'mbcsToSbcs': dot substituted for <bb>
+Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  font metrics unknown for Unicode character U+03bb
+Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  conversion failure on 'λ =' in 'mbcsToSbcs': dot substituted for <ce>
+Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y,  :
+  conversion failure on 'λ =' in 'mbcsToSbcs': dot substituted for <bb>
+Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x, x$y,  :
+  font metrics unknown for Unicode character U+03bb
+Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x, x$y,  :
+  conversion failure on 'λ =' in 'mbcsToSbcs': dot substituted for <ce>
+Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x, x$y,  :
+  conversion failure on 'λ =' in 'mbcsToSbcs': dot substituted for <bb>
+Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x, x$y,  :
+  font metrics unknown for Unicode character U+03bb
+Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x, x$y,  :
+  conversion failure on 'λ =' in 'mbcsToSbcs': dot substituted for <ce>
+Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x, x$y,  :
+  conversion failure on 'λ =' in 'mbcsToSbcs': dot substituted for <bb>
+Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x, x$y,  :
+  conversion failure on 'λ =' in 'mbcsToSbcs': dot substituted for <ce>
+Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x, x$y,  :
+  conversion failure on 'λ =' in 'mbcsToSbcs': dot substituted for <bb>
+Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x, x$y,  :
+  conversion failure on 'λ =' in 'mbcsToSbcs': dot substituted for <ce>
+Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x, x$y,  :
+  conversion failure on 'λ =' in 'mbcsToSbcs': dot substituted for <bb>
+> 
+> 
+> 
+> ### * <FOOTER>
+> ###
+> cleanEx()
+> options(digits = 7L)
+> base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
+Time elapsed:  38.752 1.15 40.457 0.002 0.004 
+> grDevices::dev.off()
+null device 
+          1 
+> ###
+> ### Local variables: ***
+> ### mode: outline-minor ***
+> ### outline-regexp: "\\(> \\)?### [*]+" ***
+> ### End: ***
+> quit('no')

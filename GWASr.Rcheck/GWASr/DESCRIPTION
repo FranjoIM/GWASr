@@ -1,0 +1,23 @@
+Package: GWASr
+Type: Package
+Title: Plotting Summary Statistics In GGPlot
+Version: 0.1.0
+Author: c(
+  person("Franjo", "Ivankovic", email = "njofrica@ufl.edu", role = c("aut", "cre")),
+  person("Mingjing", "Chen", email = "mingjingchen@ufl.edu", role = c("aut")),
+  person("Xiaoxiao", "Wen", email = "xiaoxiao.wen@ufl.edu", role = c("aut")))
+Maintainer: Franjo Ivankovic <njofrica@ufl.edu>
+Description: GGWASr is a GGPlot2 expansion pack of functions which are capable of plotting the genome-wide association study summary statitics using ggplot package, as well as running some basic analyses with the data. 
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports: Rcpp, dplyr (>= 1.0.7), ggplot2 (>= 3.3.5)
+LinkingTo: Rcpp
+RoxygenNote: 7.1.2
+Depends: R (>= 2.10)
+Suggests: rmarkdown, knitr, testthat (>= 3.0.0)
+VignetteBuilder: knitr
+Config/testthat/edition: 3
+NeedsCompilation: yes
+Packaged: 2021-12-14 02:31:46 UTC; franjo
+Built: R 4.0.5; x86_64-apple-darwin17.0; 2021-12-14 04:03:21 UTC; unix
