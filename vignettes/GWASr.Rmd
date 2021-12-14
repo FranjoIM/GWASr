@@ -24,7 +24,7 @@ GWASr is a simple R pacakge which is capable of building QQ and Manhattan plots 
 ## Install Packages
 To install GWASr, a simple one-line code below with fetch this package from GitHub and install it in R. Additionally, the *build_vignettes = TRUE* option will automatically build an HTML of this vignette.
 ```{r install}
-devtools::install_github("FranjoIM/PackageName", ref = "v0.1.0", build_vignettes = TRUE)
+devtools::install_github("FranjoIM/GWASr", ref = "v0.1.0", build_vignettes = TRUE)
 ```
 
 ## Load the Package
